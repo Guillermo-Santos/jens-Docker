@@ -1,0 +1,16 @@
+version: '3.3'
+
+networks:
+    webapp:
+
+services:
+    jenkins:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: jenkins-serv
+        ports:
+            - "50000:50000"
+            - "8080:8080"
+        networks:
+            - webapp
