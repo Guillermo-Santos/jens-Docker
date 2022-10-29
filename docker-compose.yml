@@ -13,3 +13,5 @@ services:
           - Jenkins_home:/var/jenkins_home
           - /var/run/docker.sock:/var/run/docker.sock
           - /var/snap/docker/Current:/usr/bin/docker
+volumes:
+    Jenkins_home:
