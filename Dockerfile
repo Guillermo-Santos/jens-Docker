@@ -16,4 +16,4 @@ RUN apt-get update
 #RUN sudo apt install terraform
 
 # drop back to the regular jenkins user - good practice
-#USER jenkins
+USER jenkins
