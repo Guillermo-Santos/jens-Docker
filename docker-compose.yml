@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
     jenkins:
+        user: root
         build:
             context: .
             dockerfile: Dockerfile
@@ -10,7 +11,12 @@ services:
             - "50000:50000"
             - "8080:8080"
         volumes:
-          - ./jenkins_home:/var/jenkins_home
-          - /var/run/docker.sock:/var/run/docker.sock
-          - /var/snap/docker/Current:/usr/bin/docker
-          - /var/snap/docker-compose/Current:/usr/bin/docker-compose
+            - ./jenkins_home:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /usr/bin/docker:/usr/bin/docker
+            - /usr/bin/docker-compose:/usr/bin/docker-compose
+        networks:
+          - mynet
+networks:
+  mynet:
+    driver: bridge
