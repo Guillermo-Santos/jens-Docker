@@ -1,7 +1,7 @@
 FROM jenkins/jenkins
 # if we want to install via apt
 USER root
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 #RUN wget -O- https://apt.releases.hashicorp.com/gpg | \
 #    gpg --dearmor | \
 #    sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg

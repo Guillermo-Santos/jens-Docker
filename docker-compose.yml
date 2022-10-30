@@ -2,11 +2,11 @@ version: '3.3'
 
 services:
     jenkins:
-        user: root
         build:
             context: .
             dockerfile: Dockerfile
         container_name: jenkins-serv
+        restart: always
         ports:
             - "50000:50000"
             - "8080:8080"
@@ -15,8 +15,3 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
             - /usr/bin/docker:/usr/bin/docker
             - /usr/bin/docker-compose:/usr/bin/docker-compose
-        networks:
-          - mynet
-networks:
-  mynet:
-    driver: bridge
